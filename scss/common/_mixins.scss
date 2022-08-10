@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@mixin flexBox($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin imageStyle($url, $repeat, $positionX, $positionY, $size){
+  background-image: $url;
+  background-repeat: $repeat;
+  background-position: $positionX $positionY;
+  background-size: $size;
+}
+
+@mixin iconBtn {
+  margin: 0 1.5rem;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

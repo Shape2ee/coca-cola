@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* _header.scss */
+
+header{
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  height: 8rem;
+  z-index: 9999;
+}
+
+.header {
+  @include flexBox(flex-end, center);
+
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  background-color: #ddd;
+
+  &__logo {
+    margin-right: auto;
+
+    a {
+      @include imageStyle(url(../images/logo.svg), no-repeat, 50%, 50%, contain);
+
+      display: block;
+      width: 126px;
+      height: 40px; 
+    }
+  }
+
+  &__gnb {
+      /* display: flex; */
+    display: none;
+    height: 100%;
+
+    li {
+      margin: 0 0.5rem;
+      padding: 0 1rem;
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      font-size: 1.6rem;
+      text-transform: capitalize;
+      line-height: 8rem;
+    }
+  }
+
+  &__serch {
+    @include iconBtn;
+    @include imageStyle(url(../images/serch.svg), no-repeat, 50%, 50%, contain);
+
+
+  }
+
+  &__mobile-btn {
+    @include iconBtn;
+
+    position: relative;
+  }
+
+  &__mobile-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 1px;
+    background-color: $black;
+    
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -8px;
+      width: 100%;
+      height: 1px;
+      background-color: $black;
+    }
+
+    &::after {
+      @extend &::before;
+
+      top: 8px;
+    }
+  }
+}

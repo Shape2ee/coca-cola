@@ -1,22 +1,93 @@
-@charset "utf-8";
+@charset "UTF-8";
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+  /*내가추가함*/
+  border: none;
+  padding: 0;
+  outline: none;
+}
 
 html {
-  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
-body {
-  font-size: 1rem;
-  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1;
+*::before, *::after {
+  box-sizing: inherit;
 }
 
-.inner_wrapper {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 1800px;
+img,
+video {
+  height: auto;
+  max-width: 100%;
+  /*내가추가함*/
+  vertical-align: top;
 }
 
-/****** header ******/
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/*내가추가함*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* _header.scss */
 header {
   position: fixed;
   top: 3rem;
@@ -26,7 +97,7 @@ header {
   z-index: 9999;
 }
 
-.header__container {
+.header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -35,53 +106,51 @@ header {
   height: 100%;
   background-color: #ddd;
 }
-
 .header__logo {
   margin-right: auto;
 }
-
 .header__logo a {
+  background-image: url(../images/logo.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
   display: block;
   width: 126px;
-  height: 40px; 
-  background: url(../images/logo.svg) no-repeat 50% / contain;
+  height: 40px;
 }
-
 .header__gnb {
   /* display: flex; */
   display: none;
   height: 100%;
 }
-
 .header__gnb li {
   margin: 0 0.5rem;
   padding: 0 1rem;
 }
-
-.header__gnb li a {
+.header__gnb a {
   display: block;
   height: 100%;
   font-size: 1.6rem;
   text-transform: capitalize;
   line-height: 8rem;
 }
-
-.header__serch,
+.header__serch {
+  margin: 0 1.5rem;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-image: url(../images/serch.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
 .header__mobile-btn {
   margin: 0 1.5rem;
   width: 24px;
   height: 24px;
   cursor: pointer;
-}
-
-.header__serch {
-  background: url(../images/serch.svg) no-repeat 50% / contain;
-}
-
-.header__mobile-btn {
   position: relative;
 }
-
 .header__mobile-icon {
   position: absolute;
   top: 50%;
@@ -91,9 +160,7 @@ header {
   height: 1px;
   background-color: #000;
 }
-
-.header__mobile-icon::before,
-.header__mobile-icon::after {
+.header__mobile-icon::before, .header__mobile-icon::after {
   content: "";
   display: block;
   position: absolute;
@@ -105,47 +172,4 @@ header {
 
 .header__mobile-icon::after {
   top: 8px;
-}
-
-/****** main ******/
-main{
-  height: 300vh;
-}
-
-/****** section 1 ******/
-/* .since {
-  margin-top: 100px;
-} */
-
-.since__container {
-  /* margin-top: 100px; */
-  width: 100%;
-  height: 100vh;
-}
-
-.since__img-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin: 0 auto;
-  width: 90%;
-  height: 100%;
-  max-width: 1300px;
-  background: url(../images/logo.svg) no-repeat 50% / contain ;
-}
-
-.since__txt {
-  position: relative;
-  font-size: 4rem;
-  font-weight: 700;
-  color: #E61D2B;
-}
-
-.since__img-box img {
-  /* transform: rotate(20deg); */
-}
-
-/****** sction1 ******/
-/* footer */
+}/*# sourceMappingURL=style.css.map */
