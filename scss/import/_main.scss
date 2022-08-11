@@ -148,14 +148,14 @@
   background-color: $mainColor;
 }
 
-// sticky 
+/****** secition sticky ******/
 .sticky {
   position: relative;
 
   &__container {
     position: sticky;
     top: 0;
-    height: 940px;
+    height: 100vh;
   }
 
   &__horizontal {
@@ -166,12 +166,31 @@
     height: 100%;
   }
   
+  &__txt-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5.208vw;
+    margin-right: 26.042vw;
+    // width: 50%;
+    height: 85%;
+
+    p {
+      font-size: 1.6rem;
+      color: $black;
+    }
+  }
+
   &__title {
     flex-shrink: 0;
-    margin-left: 5.208vw;
-    width: 50%;
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: $bold;
+
+    &-stroke {
+      @include textBorder($black);
+
+      color: $white;
+    }
   }
 
   &__grid {
@@ -179,8 +198,6 @@
     gap: 2rem;
     grid-template-columns: repeat(8, 500px);
     grid-template-rows: repeat(3, 250px);
-    // height: 100%;
-    // max-height: 900px;
   }
 
   &__item-img {
@@ -238,5 +255,90 @@
     grid-column: 7 / span 1;
     grid-row: 3 / span 1;
   }
+}
 
+/****** secition news ******/
+.news {
+  padding: 15rem 0;
+  background-color: $mainColor;
+
+  &__title {
+    @include flexBox(flex-start, flex-end);
+
+    color: $white;
+  }
+
+  &__main {
+    font-size: 10rem;
+    font-weight: $bold;
+  }
+
+  &__sub {
+    font-size: 2rem;
+    margin: {
+      left: 1rem;
+      bottom: 1rem;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    margin: 4rem 0;
+  }
+
+  &__prev {
+    @include imgStyle(url(../../images/arrow_red.svg), no-repeat, 50%, 50%, auto);
+
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba($white, $alpha: 1);
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
+
+  &__next {
+    @extend .news__prev;
+
+    transform: rotate(0);
+  }
+
+  &__slide {
+    overflow: hidden;
+  }
+
+  &__container {
+    display: flex;
+    
+
+    li {
+      flex-shrink: 0;
+      margin-right: 2rem;
+      width: 100%;
+      max-width: 550px;
+      background-color: $white;
+    }
+  }
+
+  &__img {
+    height: 300px;
+    border: 2px solid $white;
+
+    img {
+      @include imgCover;
+    }
+  }
+
+  &__txt {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem;
+    height: 150px;
+    font-size: 2rem;
+    line-height: 2.6rem;
+  }
+
+  &__date {
+    margin-top: auto;
+    color: $mainColor;
+  }
 }

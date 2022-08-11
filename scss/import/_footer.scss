@@ -1,3 +1,63 @@
 @charset "utf-8";
 /* _footer.scss */
 
+.footer {
+  @include flexBox(center, center);
+
+  flex-direction: column;
+  padding: 10rem 0;
+  background-color: $black;
+  color: $white;
+
+  a{
+    display: block;
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  // &__coca-logo {
+
+  // }
+
+  &__list {
+    @include flexBox(center, flex-start);
+
+    flex-wrap: wrap;
+    font-size: 1.6rem;
+
+    li {
+      position: relative;
+      padding: 1rem;
+
+      &::after {
+        @include positionTopLeft(0, 50%);
+
+        content: "";
+        display: block;
+        background-color: $white;
+        width: 1px;
+        height: 1rem;
+      }
+
+      &:first-child::after {
+        display: none;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    margin: 5rem 0;
+
+    li {
+      margin: 0 1rem;
+    }
+  }
+
+  &__copy {
+    font-size: 1.6rem;
+    color: rgba($white, $alpha: 0.5);
+  }
+}
