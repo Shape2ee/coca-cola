@@ -1,7 +1,10 @@
 @charset "utf-8";
 
+// 기본 스타일
 @import "./common/base.scss";
 @import "./common/mixins.scss";
 @import "./common/variables.scss";
 
+// 레이아웃
 @import "./import/header.scss";
+@import "./import/main.scss";

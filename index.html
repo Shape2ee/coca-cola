@@ -28,12 +28,11 @@
   <link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png">
   <link rel="manifest" href="./favicon/site.webmanifest">
 
-  <!-- reset css -->
-  <link rel="stylesheet" href="./css/minireset.css">
   <!-- web font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
   <!-- style css -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -58,7 +57,7 @@
       <!-- header_mobile_menu -->
       <div class="header__mobile-btn">
         <div class="header__mobile-icon">
-          <span>메뉴</span>
+          <span class="blind">메뉴</span>
         </div>
       </div>
     </div>
@@ -66,7 +65,7 @@
   <!-- main -->
   <main>
     <!-- section1 -->
-    <section class="section1 since">
+    <section class="since">
       <div class="since__container">
         <div class="since__img-box">
           <img src="./images/coca-cola.png" alt="coca-cola logo">
@@ -75,27 +74,176 @@
       </div>
     </section>
     <!-- section2 -->
-    <section class="section2 purpose">
+    <section class="purpose">
       <div class="inner_wrapper">
         <div class="purpose__container">
-          <div class="purpose__txt">
+          <div class="purpose__wrap">
             <h2>
-              <span class="purpose__txt-move">Our purpose and</span>
-              <span class="purpose__txt-move">passion have</span>
-              <span class="purpose__txt-move">always been</span>
-              <span class="purpose__txt-move">refreshment</span>
+              <span class="purpose__txt">Our purpose and</span>
+              <span class="purpose__txt">passion have</span>
+              <span class="purpose__txt">always been</span>
+              <span class="purpose__txt">refreshment</span>
             </h2>
-            <div class="purpose__img">
-              <img src="./images/coca-cola_img1.png" alt="coca-cola img1">
-              <p>coca-cola coca-cola coca-cola</p>
-            </div>
+          </div>
+          <div class="purpose__img">
+            <img src="./images/coca-cola_img1.png" alt="coca-cola img1">
+            <p>
+              <span class="txt1">c</span>
+              <span class="txt2">o</span>
+              <span class="txt3">c</span>
+              <span class="txt4">a</span>
+              <span class="txt5">-</span>
+              <span class="txt6">c</span>
+              <span class="txt7">o</span>
+              <span class="txt8">l</span>
+              <span class="txt9">a</span>
+              <span class="txt10"></span>
+              <span class="txt11">c</span>
+              <span class="txt12">o</span>
+              <span class="txt13">c</span>
+              <span class="txt14">a</span>
+              <span class="txt15">-</span>
+              <span class="txt16">c</span>
+              <span class="txt17">o</span>
+              <span class="txt18">l</span>
+              <span class="txt19">a</span>
+              <span class="txt20"></span>
+              <span class="txt21">c</span>
+              <span class="txt22">o</span>
+              <span class="txt23">c</span>
+              <span class="txt24">a</span>
+              <span class="txt25">-</span>
+              <span class="txt26">c</span>
+              <span class="txt27">o</span>
+              <span class="txt28">l</span>
+              <span class="txt29">a</span>
+              <span class="txt30"></span>
+            </p>
           </div>
         </div>
       </div>
     </section>
+    <!-- section3 -->
+    <section class="vision">
+      <div class="vision__container">
+        <h2 class="vision__title vision__title-stroke">Refresh the world.</h2>
+        <h2 class="vision__title vision__title-fill">Make a difference.</h2>
+      </div>
+    </section>
+    <!-- section4 -->
+    <section class="product">
+      <div class="inner_wrapper">
+        <ul class="bg">
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+          <li class="bg__line"></li>
+        </ul>
+        <ul class="product__container">
+          <li>
+            <figure class="product__item">
+              <img class="product__img" src="./images/img_Coca-Cola.png" alt="original">
+              <h2 class="product__title">original</h2>
+            </figure>
+          </li>
+          <li>
+            <figure class="product__item">
+              <img class="product__img" src="./images/img_Light.png" alt="light">
+              <h2 class="product__title">coca-cola<span class="block">light</span></h2>
+            </figure>
+          </li>
+          <li>
+            <figure class="product__item">
+              <img class="product__img" src="./images/img_Zero.png" alt="zero">
+              <h2 class="product__title">coca-cola<span class="block">zero</span></h2>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- canvas -->
+    <canvas id="canvas" class="canvas"></canvas>
+    <!-- section5 -->
+    <section class="sticky">
+      <div class="sticky__container">
+        <div class="sticky__horizontal">
+          <h2 class="sticky__title">
+            <span>our</span>
+            <span>company</span>
+          </h2>
+          <ul class="sticky__grid">
+            <li class="sticky__item sticky__item-img">
+              <img src="./images/grid_img1.png" alt="grid img 1">
+            </li>
+            <li class="sticky__item sticky__item-txt">
+              <h3>On May 8, 1886 </h3>
+              <p>Dr. John Pemberton served the world’s first Coca-Cola at Jacobs' Pharmacy in Atlanta, Ga. From that one iconic drink, we’ve evolved into a total beverage company. </p>
+            </li>
+            <li class="sticky__item sticky__item-img">
+              <img src="./images/grid_img2.png" alt="grid img 2">
+            </li>
+            <li class="sticky__item sticky__item-txt">
+              <h3>Our Brands</h3>
+              <p>More than 1.9 billion servings of our drinks are enjoyed in more than 200 countries each day. And it’s the 700,000 individuals employed by The Coca-Cola Company and 225+ bottling partners that help to deliver refreshment across the globe.</p>
+            </li>
+            <li class="sticky__item sticky__item-img">
+              <img src="./images/grid_img3.png" alt="grid img 3">
+            </li>
+            <li class="sticky__item sticky__item-txt">
+              <h3>Total Beverage Company</h3>
+              <p>In 1960, we acquired Minute Maid. That was our
+                first step toward becoming a total beverage
+                company and being there when people enjoy
+                and share in life’s best moments. </p>
+              <p>Our beverage portfolio has expanded to more
+                than 200 brands and thousands of beverages
+                around the world, from soft drinks and waters,
+                to coffee and teas. Learn more about our brands
+                and our commitment to quality products</p>
+            </li>
+            <li class="sticky__item sticky__item-img">
+              <img src="./images/grid_img4.png" alt="grid img 4">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
   </main>
   <!-- footer -->
-  <footer></footer>
+  <footer class="footer">
+    <div class="footer__logo">
+      <div class="footer__coca-logo"><a href="#"></a></div>
+      <div class="footer__my-logo"><a href="#"></a></div>
+    </div>
+    <ul class="footer__list">
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Media center</a></li>
+      <li><a href="#">Coca-cola foundation</a></li>
+      <li><a href="#">investors</a></li>
+      <li><a href="#">policies</a></li>
+      <li><a href="#">leadership</a></li>
+      <li><a href="#">history</a></li>
+      <li><a href="#">faq</a></li>
+      <li><a href="#">international</a></li>
+    </ul>
+    <ul class="footer__social">
+      <li><a href="#"><img src="./" alt="twitter"></a></li>
+      <li><a href="#"><img src="./" alt="facebook"></a></li>
+      <li><a href="#"><img src="./" alt="linked in"></a></li>
+      <li><a href="#"><img src="./" alt="instargram"></a></li>
+      <li><a href="#"><img src="./" alt="youtube"></a></li>
+    </ul>
+    <p class="footer__copy">2022 The Coca-Cola Company. All Rights Reserved.</p>
+  </footer>
 
   <!-- script -->
 </body>

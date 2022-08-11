@@ -1,21 +1,62 @@
 @charset "utf-8";
 
+// flex
 @mixin flexBox($justify, $align) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
 }
 
-@mixin imageStyle($url, $repeat, $positionX, $positionY, $size){
+// position
+@mixin positionTopLeft($x, $y) {
+  position: absolute;
+  top: $y;
+  left: $x;
+  @if $x == 50% and $y == 50% {
+    transform: translate(-50%, -50%);
+  } @else if $y == 50% {
+    transform: translateY(-50%);
+  } @else if $x == 50% {
+    transform: translateX(-50%);
+  }
+}
+
+@mixin positionBottomLeft($x, $y) {
+  position: absolute;
+  bottom: $y;
+  left: $x;
+  @if $x == 50% and $y == 50% {
+    transform: translate(-50%, -50%);
+  } @else if $y == 50% {
+    transform: translateY(-50%);
+  } @else if $x == 50% {
+    transform: translateX(-50%);
+  }
+}
+
+// image
+@mixin imgStyle($url, $repeat, $positionX, $positionY, $size){
   background-image: $url;
   background-repeat: $repeat;
   background-position: $positionX $positionY;
   background-size: $size;
 }
 
+@mixin imgCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// icon
 @mixin iconBtn {
   margin: 0 1.5rem;
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+// font
+@mixin textBorder($color) {
+  text-shadow: 1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
 }

@@ -13,7 +13,7 @@ header{
 .header {
   @include flexBox(flex-end, center);
 
-  margin: 0 auto;
+  margin: $marginAuto;
   width: 90%;
   height: 100%;
   background-color: #ddd;
@@ -22,7 +22,7 @@ header{
     margin-right: auto;
 
     a {
-      @include imageStyle(url(../images/logo.svg), no-repeat, 50%, 50%, contain);
+      @include imgStyle(url(../images/logo.svg), no-repeat, 50%, 50%, contain);
 
       display: block;
       width: 126px;
@@ -51,7 +51,7 @@ header{
 
   &__serch {
     @include iconBtn;
-    @include imageStyle(url(../images/serch.svg), no-repeat, 50%, 50%, contain);
+    @include imgStyle(url(../images/serch.svg), no-repeat, 50%, 50%, contain);
 
 
   }
@@ -63,26 +63,24 @@ header{
   }
 
   &__mobile-icon {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    @include positionTopLeft(0, 50%);
+
     width: 100%;
     height: 1px;
     background-color: $black;
     
     &::before {
       content: "";
+      @include positionTopLeft(0, -8px);
+
       display: block;
-      position: absolute;
-      top: -8px;
       width: 100%;
       height: 1px;
       background-color: $black;
     }
 
     &::after {
-      @extend &::before;
+      @extend ::before;
 
       top: 8px;
     }

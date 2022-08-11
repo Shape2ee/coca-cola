@@ -1,4 +1,15 @@
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+/* 내가 추가한 코드 */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1rem;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1;
+}
+
 html,
 body,
 p,
@@ -87,4 +98,19 @@ th {
 a {
   text-decoration: none;
   color: inherit;
-} 
+}
+
+.blind {
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.inner_wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1800px;
+}
