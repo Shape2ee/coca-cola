@@ -155,16 +155,18 @@
 .product {
   position: relative;
   background-color: $G-color-black;
-  height: 600vh;
+  height: 400vh;
 
   &__item {
     position: relative;
-    height: 200vh;
+    height: 100vh;
+    overflow: hidden
   }
 
   &__img {
     @include positionTopLeft(50%, 50%);
 
+    // margin: 100px 0;
     width: 50%;
   }
 
@@ -303,7 +305,7 @@
 /****** secition6 brand ******/
 .brand {
   position: relative;
-  height: 100vh;
+  height: 200vh;
   // background-color: $G-color-main;
   // color: #fff;
 
@@ -312,7 +314,7 @@
 
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
 
   &__title {
@@ -345,11 +347,13 @@
     li {
       width: 100%;
       background-color: $G-color-main;
+      transform: translateY(100%)
     }
   }
 
   &__info {
     @include positionTopLeft(50%, 50%);
+
 
     flex-direction: column;
     color: $G-color-white; 
@@ -421,9 +425,9 @@
 
     li {
       flex-shrink: 0;
-      margin-right: 2rem;
+      // margin-right: 2rem;
       width: 100%;
-      max-width: 550px;
+      // max-width: 550px;
       background-color: $G-color-white;
     }
   }

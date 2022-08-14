@@ -663,11 +663,12 @@ header {
 .product {
   position: relative;
   background-color: #000;
-  height: 600vh;
+  height: 400vh;
 }
 .product__item {
   position: relative;
-  height: 200vh;
+  height: 100vh;
+  overflow: hidden;
 }
 .product__img {
   position: absolute;
@@ -792,7 +793,7 @@ header {
 /****** secition6 brand ******/
 .brand {
   position: relative;
-  height: 100vh;
+  height: 200vh;
 }
 .brand__container {
   display: flex;
@@ -800,7 +801,7 @@ header {
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 .brand__title {
   width: 100%;
@@ -828,6 +829,7 @@ header {
 .brand__move li {
   width: 100%;
   background-color: #e61d2b;
+  transform: translateY(100%);
 }
 .brand__info {
   position: absolute;
@@ -887,9 +889,7 @@ header {
 }
 .news__container li {
   flex-shrink: 0;
-  margin-right: 2rem;
   width: 100%;
-  max-width: 550px;
   background-color: #fff;
 }
 .news__img {

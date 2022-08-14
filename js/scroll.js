@@ -12,35 +12,50 @@ gsap.to(".since__logo",{
     pin: true,   // pin the trigger element while active
     start: "top top", // when the top of the trigger hits the top of the viewport
     end: "bottom 100%", // end after scrolling 500px beyond the start
-    markers: true,
+    // markers: true,
     scrub: 1
   },
 });
 
-gsap.to(".since__can",{
-  rotate: 30,
+const sinceTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".since",
-    pin: true,   // pin the trigger element while active
-    start: "top top", // when the top of the trigger hits the top of the viewport
-    end: "bottom 100%", // end after scrolling 500px beyond the start
+    pin: true,
+    start: "top top",
+    end: "bottom 100%",
     markers: true,
     scrub: 1
   },
-});
+})
 
-gsap.to(".since__txt",{
-  yPercent: 600,
-  scale: 10,
-  scrollTrigger: {
-    trigger: ".since",
-    pin: true,   // pin the trigger element while active
-    start: "top top", // when the top of the trigger hits the top of the viewport
-    end: "bottom 100%r", // end after scrolling 500px beyond the start
-    markers: true,
-    scrub: 1
-  },
-});
+sinceTimeline.to(".since__can", {rotate: 30,})
+.to(".since__txt", {scale: 10, yPercent:600})
+
+// gsap.to(".since__can",{
+//   rotate: 30,
+//   y:100,
+//   scrollTrigger: {
+//     trigger: ".since",
+//     pin: true,   // pin the trigger element while active
+//     start: "top top", // when the top of the trigger hits the top of the viewport
+//     end: "bottom 100%", // end after scrolling 500px beyond the start
+//     markers: true,
+//     scrub: 1
+//   },
+// });
+
+// gsap.to(".since__txt",{
+//   yPercent: 800,
+//   scale: 10,
+//   scrollTrigger: {
+//     trigger: ".since",
+//     pin: true,   // pin the trigger element while active
+//     start: "top top", // when the top of the trigger hits the top of the viewport
+//     end: "bottom 100%r", // end after scrolling 500px beyond the start
+//     markers: true,
+//     scrub: 1
+//   },
+// });
 
 /*---------- section2 ----------*/
 const purposeTitle = document.querySelectorAll(".purpose__txt");
@@ -119,13 +134,90 @@ gsap.from(".vision__title-fill", {
 // .to(".product__img", {
 //   height: 0
 // })
-
-gsap.utils.toArray(".product__item").forEach((section, i) => {
+/*
+gsap.utils.toArray(".product__img").forEach((section, i) => {
   ScrollTrigger.create({
     trigger: ".product__container",
     start: "top top", 
-    // botto
     pin: true,
-    pinSpacing: false,
+    pinSpacing: true,
+    markers: true,
+    scrub: 1
   });
 });
+*/
+gsap.utils.toArray(".product__img").forEach((img, i) => {
+  ScrollTrigger.create({
+    trigger: img,
+    start: "top top", 
+    pin: true, 
+    pinSpacing: false 
+  });
+});
+
+
+/*---------- section ----------*/
+const bgList = document.querySelectorAll(".brand__move li")
+const infoList = document.querySelectorAll(".brand__info li")
+/*
+gsap.to(bgList[0],{
+  y: 0,
+  scrollTrigger: {
+    trigger: ".brand",
+    pin: true,
+    start: "top top",
+    end: "bottom center",
+    markers: true,
+    scrub: 1
+  }
+});
+
+gsap.to(bgList[1],{
+  y: 0,
+  delay: 0.25,
+  scrollTrigger: {
+    trigger: ".brand",
+    pin: true,
+    start: "top top",
+    end: "bottom center",
+    markers: true,
+    scrub: 1,
+  }
+})
+*/
+
+const bgColorMove = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".brand",
+    pin: true,
+    pinSpacing: false,
+    start: "top top",
+    end: "bottom bottom",
+    markers: true,
+    scrub: 1
+  },
+})
+
+bgColorMove.to(bgList[0],{y: 0,})
+  .to(bgList[1],{y: 0,})
+  .to(bgList[2],{y: 0,})
+  .to(bgList[3],{y: 0,})
+  .to(bgList[4],{y: 0,})
+  .to(bgList[5],{y: 0,})
+  .from(infoList[0], {yPercent: 500},2)
+  .from(infoList[1], {yPercent: 500},2.25)
+// brand__move
+
+// const infoMove = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".brand",
+//     pin: true,
+//     // pinSpacing: false,
+//     start: "top 100%",
+//     // end: "bottom center",
+//     markers: true,
+//     scrub: 1
+//   },
+// })
+
+// infoMove
