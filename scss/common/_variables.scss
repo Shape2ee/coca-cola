@@ -1,16 +1,18 @@
 @charset "utf-8";
+/* _variables.scss */
 
 // color
-$mainColor: #E61D2B;
-$black: #000;
-$gray: #555;
-$white: #fff;
+$G-color-main: #e61d2b;
+$G-color-black: #000;
+$G-color-gray: #555;
+$G-color-lightgray: #ccc;
+$G-color-white: #fff;
 
 // margin
-$marginAuto: 0 auto;
+$G-margin-center: 0 auto;
 
 // font-size
 $font110: 11rem;
 
 // font-weight;
-$bold: 700;
+$G-font-bold: 700;

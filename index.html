@@ -34,7 +34,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- style css -->
-    <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- GSAP -->
+  <script src="./js/gsap.min.js"></script>
+  <script src="./js/ScrollTrigger.min.js"></script>
 </head>
 <body>
   <!-- header -->
@@ -68,7 +72,8 @@
     <section class="since">
       <div class="since__container">
         <div class="since__img-box">
-          <img src="./images/coca-cola.png" alt="coca-cola logo">
+          <img class="since__logo" src="./images/logo.svg" alt="coca-cola logo">
+          <img class="since__can" src="./images/coca-cola.png" alt="coca-cola can">
           <h2 class="since__txt">since 1886</h2>
         </div>
       </div>
@@ -87,7 +92,7 @@
           </div>
           <div class="purpose__img">
             <img src="./images/coca-cola_img1.png" alt="coca-cola img1">
-            <p>
+            <div class="purpose__rotate">
               <span class="txt1">c</span>
               <span class="txt2">o</span>
               <span class="txt3">c</span>
@@ -118,7 +123,7 @@
               <span class="txt28">l</span>
               <span class="txt29">a</span>
               <span class="txt30"></span>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -150,7 +155,9 @@
           <li>
             <figure class="product__item">
               <img class="product__img" src="./images/img_Coca-Cola.png" alt="original">
-              <h2 class="product__title">original</h2>
+              <h2 class="product__title">
+                <span class="block">coca-cola</span>
+              </h2>
             </figure>
           </li>
           <li>
@@ -171,7 +178,7 @@
 
     <!-- canvas -->
     <canvas id="canvas" class="canvas"></canvas>
-    <!-- section5 -->
+    <!-- section5 sticky -->
     <section class="sticky">
       <div class="sticky__container">
         <div class="sticky__horizontal">
@@ -219,8 +226,41 @@
         </div>
       </div>
     </section>
-
-    <!-- section -->
+    <!-- section6 brand -->
+    <section class="brand">
+      <div class="brand__container">
+        <div class="brand__title">
+            <div class="inner_wrapper">
+            <h2>
+              <span class="block">Woldwide</span>
+              <span class="block">Brand,</span>
+              <span class="block">Coca-Cola</span>
+            </h2>
+          </div>
+        </div>
+        <div class="brand__scroll">
+          <ul class="brand__move">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="brand__info">
+            <li>
+              <h3 class="brand__value">135<span class="brand__value-plus">+</span></h3>
+              <p class="brand__desc">years of refreshing the world</p>
+            </li>
+            <li>
+              <h3 class="brand__value">200<span class="brand__value-plus">+</span></h3>
+              <p class="brand__desc">years of refreshing the world</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- section7 news -->
     <section class="news">
       <div class="inner_wrapper">
         <div class="news__title">
@@ -271,6 +311,9 @@
         </div>
       </div>
     </section>
+    <article class="moveTitle">
+      <h2>coca-cola coca-cola</h2>
+    </article>
   </main>
   <!-- footer -->
   <footer class="footer">
@@ -278,7 +321,9 @@
       <div class="footer__coca-logo">
         <a href="#"><img src="./images/logo_w.svg" alt="coca-cola"></a>
       </div>
-      <div class="footer__my-logo"><a href="#">dh</a></div>
+      <div class="footer__my-logo">
+        <a href="#"><img src="./images/dh_logo.svg" alt="dohyoung logo"></a>
+      </div>
     </div>
     <ul class="footer__list">
       <li><a href="#">Contact us</a></li>
@@ -302,5 +347,8 @@
   </footer>
 
   <!-- script -->
+  <!-- <script src="./js/main.js"></script> -->
+  <script src="./js/scroll.js"></script>
+  <script src="./js/horizontal.js"></script>
 </body>
 </html>

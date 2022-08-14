@@ -6,20 +6,28 @@
 
   flex-direction: column;
   padding: 10rem 0;
-  background-color: $black;
-  color: $white;
+  background-color: $G-color-black;
+  color: $G-color-white;
 
-  a{
+  a {
     display: block;
   }
 
   &__logo {
     display: flex;
+    margin-bottom: 3rem;
   }
 
-  // &__coca-logo {
+  &__coca-logo {
+    margin-right: 2rem;
+    width: 126px;
+    height: 40px;
+  }
 
-  // }
+  &__my-logo {
+    width: 54px;
+    height: 40px;
+  }
 
   &__list {
     @include flexBox(center, flex-start);
@@ -36,7 +44,7 @@
 
         content: "";
         display: block;
-        background-color: $white;
+        background-color: $G-color-white;
         width: 1px;
         height: 1rem;
       }
@@ -57,7 +65,7 @@
   }
 
   &__copy {
-    font-size: 1.6rem;
-    color: rgba($white, $alpha: 0.5);
+    font-size: 1.4rem;
+    color: rgba($G-color-white, $alpha: 0.5);
   }
 }

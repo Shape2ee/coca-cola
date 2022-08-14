@@ -1,23 +1,30 @@
 @charset "utf-8";
 /* _main.scss */
 
+.inner_wrapper {
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  max-width: 1800px;
+}
+
 .bg {
   @include positionTopLeft(50%, 0);
+  $left-list: 0 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%;
 
   width: 90%;
   height: 100%;
   pointer-events: none;
-  
-  $leftAll: 0 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%;
+
   &__line {
     position: absolute;
     top: 0;
     height: 100%;
-    border-left: 1px solid rgba($color: #fff, $alpha: 0.1);
+    border-left: 1px solid rgba($G-color-lightgray, $alpha: 0.3);
   }
 
-  @each $left in $leftAll {
-    $i: index($leftAll, $left);
+  @each $left in $left-list {
+    $i: index($left-list, $left);
     &__line:nth-child(#{$i}) {
       left: $left;
     }
@@ -26,6 +33,8 @@
 
 /****** secition1  since ******/
 .since {
+  height: 150vh;
+
   &__container {
     width: 100%;
     height: 100vh;
@@ -33,96 +42,130 @@
 
   &__img-box {
     @include flexBox(center, center);
-    @include imgStyle(url(../../images/logo.svg), no-repeat, 50%, 50%, contain);
-
+    // @include imgStyle(url(../../images/logo.svg), no-repeat, 50%, 50%, contain);
+    
+    position: relative;
     flex-direction: column;
-    margin: $marginAuto;
+    margin: $G-margin-center;
     width: 90%;
     height: 100%;
     max-width: 1400px;
   }
 
+  &__logo {
+    position: absolute;
+    width: 100%;
+    z-index: -9;
+  }
+
   &__txt {
     font-size: 4rem;
-    font-weight: $bold;
-    color: $mainColor;
+    font-weight: $G-font-bold;
+    color: $G-color-main;
+  }
+
+  &__can {
+    width: 50%;
   }
 }
 
 /****** secition2 purpose ******/
 .purpose {
-  background-color: $mainColor;
-  color: $white;
+  background-color: $G-color-main;
+  color: $G-color-white;
+  height: 100vh;
 
   &__container {
     @include flexBox(center, center);
 
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
   }
 
   &__wrap {
-    font-size: 4rem;
-    line-height: 6rem;
-
+    font-size: 8.33vw;
+    line-height: 9.33vw;
   }
 
   &__txt {
     display: block;
-    font-weight: $bold;
+    font-weight: $G-font-bold;
   }
 
   &__img {
     position: relative;
-    margin-top: 6rem ;
+    margin-top: 4rem;
+    width: 80%;
+  }
+
+  &__rotate {
+    @include positionBottomLeft(-7vw,-7vw);
+
+    width: 14.993vw;
+    height: 14.993vw;
+    min-width: 10rem;
+    min-height: 10rem;
 
     @for $i from 1 to 30 {
       .txt#{$i} {
-        @include positionBottomLeft(0, 0);
-
+        position: absolute;
+        top: 50%;
+        left: 50%;
         width: 16px;
-        height: 6rem;
+        height: 14.993vw;
+        min-height: 10rem;
         font-size: 1.6rem;
-        transform-origin: bottom center;
-        transform: rotate(($i*12)+deg)
+        transform: translate(-50%, -50%) rotate(($i * 12) + deg);
       }
     }
   }
 }
-
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+    transform-origin: center center;
+  }
+}
 /****** secition3 vision ******/
 .vision {
+  background-color: $G-color-main;
+  overflow: hidden;
+
   &__container {
-    background-color: $mainColor;
-    color: $white;
+    position: relative;
+    margin: 6rem 0;
+    color: $G-color-white;
   }
-  
+
   &__title {
-    font-size: 14rem;
-    font-weight: $bold;
+    margin: 1.563vw 0;
+    font-size: 10.417vw;
+    font-weight: $G-font-bold;
     white-space: nowrap;
   }
 
   &__title-stroke {
-    @include textBorder($white);
-    
-    color: $mainColor;
+    @include textBorder($G-color-white);
+
+    color: $G-color-main;
   }
 }
 
 /****** secition4 product ******/
 .product {
   position: relative;
-  background-color: $black;
-  height: 300vh;
+  background-color: $G-color-black;
+  height: 600vh;
 
   &__item {
     position: relative;
-    height: 100vh;
+    height: 200vh;
   }
 
   &__img {
     @include positionTopLeft(50%, 50%);
+
+    width: 50%;
   }
 
   &__title {
@@ -131,13 +174,13 @@
     width: 100%;
     text-align: center;
     text-transform: uppercase;
-    font-size: 6rem;
-    font-weight: $bold;
-    color: $white;
-    
+    font-size: 12vw;
+    font-weight: $G-font-bold;
+    color: $G-color-white;
+
     .block {
       display: block;
-      font-size: 10rem;
+      font-size: 18vw;
     }
   }
 }
@@ -145,10 +188,10 @@
 // canvas
 .canvas {
   height: 100vh;
-  background-color: $mainColor;
+  background-color: $G-color-main;
 }
 
-/****** secition sticky ******/
+/****** secition5 sticky ******/
 .sticky {
   position: relative;
 
@@ -165,39 +208,39 @@
     width: 100%;
     height: 100%;
   }
-  
+
   &__txt-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-left: 5.208vw;
     margin-right: 26.042vw;
-    // width: 50%;
     height: 85%;
 
     p {
       font-size: 1.6rem;
-      color: $black;
+      color: $G-color-black;
     }
   }
 
   &__title {
     flex-shrink: 0;
     font-size: 6rem;
-    font-weight: $bold;
+    font-weight: $G-font-bold;
 
     &-stroke {
-      @include textBorder($black);
+      @include textBorder($G-color-black);
 
-      color: $white;
+      color: $G-color-white;
     }
   }
 
   &__grid {
+    // height: 100%;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(8, 500px);
-    grid-template-rows: repeat(3, 250px);
+    grid-template-rows: repeat(3, calc(33.333vh - 2rem));
   }
 
   &__item-img {
@@ -209,14 +252,14 @@
   &__item-txt {
     h3 {
       font-size: 2.8rem;
-      font-weight: $bold;
+      font-weight: $G-font-bold;
     }
-    
+
     p {
       margin-top: 2rem;
       font-size: 2rem;
       line-height: 2.4rem;
-      color: $gray;
+      color: $G-color-gray;
     }
   }
 
@@ -257,20 +300,91 @@
   }
 }
 
-/****** secition news ******/
+/****** secition6 brand ******/
+.brand {
+  position: relative;
+  height: 100vh;
+  // background-color: $G-color-main;
+  // color: #fff;
+
+  &__container {
+    @include flexBox(flex-start, flex-start);
+
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    width: 100%;
+    height: 40%;
+  }
+
+  &__title h2{
+    font-size: 10.256vw;
+    font-weight: $G-font-bold;
+    color: $G-color-main;
+
+    .block {
+      display: block;
+    }
+  }
+
+  &__scroll {
+    position: relative;
+    width: 100%;
+    height: 60%;
+  }
+
+  &__move {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    li {
+      width: 100%;
+      background-color: $G-color-main;
+    }
+  }
+
+  &__info {
+    @include positionTopLeft(50%, 50%);
+
+    flex-direction: column;
+    color: $G-color-white; 
+  }
+
+  &__value {
+    font-size: 25.641vw;
+    font-weight: $G-font-bold;
+
+    &-plus {
+      @include textBorder($G-color-white);
+
+      color: $G-color-main;
+    }
+  }
+
+  &__desc {
+    font-size: 1.6rem;
+  }
+}
+
+/****** secition7 news ******/
 .news {
   padding: 15rem 0;
-  background-color: $mainColor;
+  background-color: $G-color-main;
 
   &__title {
     @include flexBox(flex-start, flex-end);
 
-    color: $white;
+    color: $G-color-white;
   }
 
   &__main {
     font-size: 10rem;
-    font-weight: $bold;
+    font-weight: $G-font-bold;
   }
 
   &__sub {
@@ -287,17 +401,13 @@
   }
 
   &__prev {
-    @include imgStyle(url(../../images/arrow_red.svg), no-repeat, 50%, 50%, auto);
+    @extend %arrow-btn;
 
-    width: 4rem;
-    height: 4rem;
-    background-color: rgba($white, $alpha: 1);
     transform: rotate(180deg);
-    cursor: pointer;
   }
 
   &__next {
-    @extend .news__prev;
+    @extend %arrow-btn;
 
     transform: rotate(0);
   }
@@ -308,20 +418,19 @@
 
   &__container {
     display: flex;
-    
 
     li {
       flex-shrink: 0;
       margin-right: 2rem;
       width: 100%;
       max-width: 550px;
-      background-color: $white;
+      background-color: $G-color-white;
     }
   }
 
   &__img {
     height: 300px;
-    border: 2px solid $white;
+    border: 2px solid $G-color-white;
 
     img {
       @include imgCover;
@@ -339,6 +448,99 @@
 
   &__date {
     margin-top: auto;
-    color: $mainColor;
+    color: $G-color-main;
   }
+}
+
+.moveTitle {
+  background-color: $G-color-white;
+
+  h2 {
+    padding: 4rem;
+    color: $G-color-main;
+    font-size: 25.641vw;
+    font-weight: $G-font-bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width:768px) {
+  /****** ******/
+  .since {
+    &__can {
+      width: auto;
+    }
+  }
+
+  /****** ******/
+  .purpose {
+    &__container {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    &__wrap {
+      width: 60%;
+      font-size: 5.729vw;
+      line-height: 6.729vw;
+    }
+
+    &__img {
+      width: 40%;
+      max-width: 700px;
+    }
+  }
+
+  /****** ******/
+  .product{
+    &__img {
+      width: 30%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    &__title {
+      left: auto;
+      right: 0;
+      width: 60%;
+      font-size: 7.813vw;
+      transform: translateY(-50%);
+
+      .block {
+        font-size: 13.021vw;
+      }
+    }
+  }
+
+  /****** ******/
+  .brand {
+    &__container {
+      flex-direction: row;
+    }
+
+    &__title {
+      height: 100%;
+
+      h2 {
+        @include flexBox(center, flex-start);
+
+        flex-direction: column;
+        height: 100%;
+        font-size: 7.813vw;
+      }
+    }
+
+    &__scroll {
+      height: 100%;
+    }
+
+    &__value {
+      font-size: 16.927vw;
+    }
+  }
+}
+
+@media screen and (min-width:1024px) {
+
 }
