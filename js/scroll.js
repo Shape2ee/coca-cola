@@ -11,9 +11,9 @@ gsap.to(".since__logo",{
     trigger: ".since",
     pin: true,   // pin the trigger element while active
     start: "top top", // when the top of the trigger hits the top of the viewport
-    end: "bottom 100%", // end after scrolling 500px beyond the start
+    end: "+=100%", // end after scrolling 500px beyond the start
     // markers: true,
-    scrub: 1
+    scrub: 1,
   },
 });
 
@@ -22,14 +22,15 @@ const sinceTimeline = gsap.timeline({
     trigger: ".since",
     pin: true,
     start: "top top",
-    end: "bottom 100%",
-    markers: true,
-    scrub: 1
+    end: "+=100%",
+    // markers: true,
+    scrub: 1,
+    ease: "Power2.easeIn"
   },
 })
 
 sinceTimeline.to(".since__can", {rotate: 30,})
-.to(".since__txt", {scale: 10, yPercent:600})
+.to(".since__txt", {scale: 10, y:200})
 
 // gsap.to(".since__can",{
 //   rotate: 30,
@@ -70,8 +71,8 @@ const movingTitle = (xData) => {
       trigger: ".purpose",
       pin: true,
       start: "top top",
-      end: "bottom center",
-      markers: true,
+      end: "bottom top",
+      // markers: true,
       scrub: 1
     }
   }
@@ -88,8 +89,8 @@ gsap.to(".purpose__rotate", {
     trigger: ".purpose",
     pin: true,
     start: "top top",
-    end: "bottom center",
-    markers: true,
+    end: "bottom top",
+    // markers: true,
     scrub: 1
   },
 });
@@ -101,7 +102,7 @@ gsap.from(".vision__title-stroke", {
     trigger: ".vision",
     start: "-500px",
     end: "bottom 100%",
-    markers: true,
+    // markers: true,
     scrub: 1
   },
 })
@@ -112,7 +113,7 @@ gsap.from(".vision__title-fill", {
     trigger: ".vision",
     start: "-200px",
     end: "200px",
-    markers: true,
+    // markers: true,
     scrub: 1
   },
 })
@@ -146,15 +147,6 @@ gsap.utils.toArray(".product__img").forEach((section, i) => {
   });
 });
 */
-gsap.utils.toArray(".product__img").forEach((img, i) => {
-  ScrollTrigger.create({
-    trigger: img,
-    start: "top top", 
-    pin: true, 
-    pinSpacing: false 
-  });
-});
-
 
 /*---------- section ----------*/
 const bgList = document.querySelectorAll(".brand__move li")
@@ -192,9 +184,10 @@ const bgColorMove = gsap.timeline({
     pin: true,
     pinSpacing: false,
     start: "top top",
-    end: "bottom bottom",
+    end: "+=100%",
     markers: true,
-    scrub: 1
+    scrub: 1,
+    ease: "Power2.easeOut"
   },
 })
 
@@ -206,18 +199,3 @@ bgColorMove.to(bgList[0],{y: 0,})
   .to(bgList[5],{y: 0,})
   .from(infoList[0], {yPercent: 500},2)
   .from(infoList[1], {yPercent: 500},2.25)
-// brand__move
-
-// const infoMove = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".brand",
-//     pin: true,
-//     // pinSpacing: false,
-//     start: "top 100%",
-//     // end: "bottom center",
-//     markers: true,
-//     scrub: 1
-//   },
-// })
-
-// infoMove

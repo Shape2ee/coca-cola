@@ -19,3 +19,28 @@
   background-color: rgba($G-color-white, $alpha: 1);
   cursor: pointer;
 }
+
+%move-title {
+    display: inline-block;
+    color: $G-color-main;
+    font-size: 25.641vw;
+    font-weight: $G-font-bold;
+    line-height: 27.641vw;
+    text-transform: uppercase;
+    
+    // transform: translateX(-100%);
+}
+
+/*
+h2 {
+  // position: absolute;
+  // left: 100%;
+  display: inline-block;
+  // padding: 4rem;
+  color: $G-color-main;
+  font-size: 25.641vw;
+  font-weight: $G-font-bold;
+  text-transform: uppercase;
+  // transform: translateX(-100%);
+}
+*/

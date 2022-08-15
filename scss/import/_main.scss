@@ -167,7 +167,7 @@
     @include positionTopLeft(50%, 50%);
 
     // margin: 100px 0;
-    width: 50%;
+    width: 40%;
   }
 
   &__title {
@@ -306,6 +306,7 @@
 .brand {
   position: relative;
   height: 200vh;
+  overflow: hidden;
   // background-color: $G-color-main;
   // color: #fff;
 
@@ -457,15 +458,55 @@
 }
 
 .moveTitle {
+  // position: relative;
+  // display: flex;
   background-color: $G-color-white;
+  height: 27.641vw;
+  white-space: nowrap;
+  
+  &__first {
+    @extend %move-title;
 
-  h2 {
-    padding: 4rem;
-    color: $G-color-main;
-    font-size: 25.641vw;
-    font-weight: $G-font-bold;
-    text-transform: uppercase;
-    white-space: nowrap;
+    color: blue;
+    animation: scrolling-left1 30s infinite linear;
+    
+  }
+  
+  &__second {
+    @extend %move-title;
+
+    // transform: translateX(100%);
+    animation: scrolling-left2 30s infinite linear;
+    animation-delay: 15s;
+  }
+}
+
+@keyframes move-right-to-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrolling-left1 {
+  0% {transform: translateX(100%);}
+  100% {transform: translateX(-100%);}
+}
+
+@keyframes scrolling-left2 {
+  0% {transform: translateX(0%);}
+  100% {transform: translateX(-200%);}
+}
+
+/* use this one to move from right to left direction */
+@keyframes move-right-to-left {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-50%);
   }
 }
 
@@ -499,7 +540,7 @@
   /****** ******/
   .product{
     &__img {
-      width: 30%;
+      width: 25%;
       left: 0;
       transform: translateY(-50%);
     }
@@ -546,5 +587,28 @@
 }
 
 @media screen and (min-width:1024px) {
+  .product{
+    &__img {
+      width: auto;
+    }
+  }
 
+  .brand{
+    &__value {
+      font-size: 15.625vw;
+    }
+  }
+  .moveTitle {
+    height: 12.417vw;
+
+    &__first {
+      font-size: 10.417vw;
+      line-height: 12.417vw;
+    }
+
+    &__second {
+      font-size: 10.417vw;
+      line-height: 12.417vw;
+    }
+  }
 }
