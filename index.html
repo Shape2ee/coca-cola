@@ -155,28 +155,30 @@
           <li class="bg__line"></li>
           <li class="bg__line"></li>
         </ul>
-        <ul class="product__container">
-          <li>
-            <figure class="product__item">
-              <img class="product__img" src="./images/img_Coca-Cola.png" alt="original">
+        <div class="product__container">
+          <ul class="product__list--img">
+            <li><img class="product__img" src="./images/img_Coca-Cola.png" alt="original"></li>
+            <li><img class="product__img" src="./images/img_Light.png" alt="light"></li>
+            <li><img class="product__img" src="./images/img_Zero.png" alt="zero"></li>
+          </ul>
+          <ul class="product__list--text">
+            <li>
               <h2 class="product__title">
                 <span class="block">coca-cola</span>
               </h2>
-            </figure>
-          </li>
-          <li>
-            <figure class="product__item">
-              <img class="product__img" src="./images/img_Light.png" alt="light">
-              <h2 class="product__title">coca-cola<span class="block">light</span></h2>
-            </figure>
-          </li>
-          <li>
-            <figure class="product__item">
-              <img class="product__img" src="./images/img_Zero.png" alt="zero">
-              <h2 class="product__title">coca-cola<span class="block">zero</span></h2>
-            </figure>
-          </li>
-        </ul>
+            </li>
+            <li>
+              <h2 class="product__title">coca-cola
+                <span class="block">light</span>
+              </h2>
+            </li>
+            <li>
+              <h2 class="product__title">coca-cola
+                <span class="block">zero</span>
+              </h2>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -191,7 +193,6 @@
               <span>our</span>
               <span class="sticky__title-stroke">company</span>
             </h2>
-            <p>scroll</p>
           </div>
           <ul class="sticky__grid">
             <li class="sticky__item sticky__item-img">
@@ -356,5 +357,6 @@
   <script src="./js/scroll.js"></script>
   <script src="./js/horizontal.js"></script>
   <script src="./js/swiper.js"></script>
+  <!-- <script src="./js/reload.js"></script> -->
 </body>
 </html>

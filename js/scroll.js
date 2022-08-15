@@ -73,7 +73,8 @@ const movingTitle = (xData) => {
       start: "top top",
       end: "bottom top",
       // markers: true,
-      scrub: 1
+      scrub: 1,
+      ease: Power2.easeOut,
     }
   }
 }
@@ -101,9 +102,10 @@ gsap.from(".vision__title-stroke", {
   scrollTrigger: {
     trigger: ".vision",
     start: "-500px",
-    end: "bottom 100%",
+    end: "200px",
     // markers: true,
-    scrub: 1
+    scrub: 1,
+    ease: Power2.easeOut,
   },
 })
 
@@ -114,39 +116,66 @@ gsap.from(".vision__title-fill", {
     start: "-200px",
     end: "200px",
     // markers: true,
-    scrub: 1
+    scrub: 1,
+    ease: Power2.easeOut,
   },
 })
 
 /*---------- section4 ----------*/
-
-// const product = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".product__container",
-//     scroller: ".product",
-//     pin: true,
-//     start: "top top",
-//     end: " bottom bottom",
-//     markers: true,
-//     scrub: true
-//   },
-// })
-
-// .to(".product__img", {
-//   height: 0
-// })
-/*
-gsap.utils.toArray(".product__img").forEach((section, i) => {
+gsap.utils.toArray(".product__list--img li").forEach((section, i) => {
   ScrollTrigger.create({
-    trigger: ".product__container",
-    start: "top top", 
+    trigger: section,
+    start: "center center", 
+    end: "+=150%",
     pin: true,
-    pinSpacing: true,
     markers: true,
-    scrub: 1
+    scrub: 1,
   });
 });
+
+
+let imgs = gsap.utils.toArray('.product__img');
+let texts = gsap.utils.toArray('.product__list--text li');
+
+/*
+imgs.forEach((img, i) => {
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: img,
+      pin: true,
+      start: "center center",
+      markers: true,
+      // scroller: ".scroller",
+      scrub: true,
+      // toggleActions: "play none reverse none",
+      // invalidateOnRefresh: true,     
+    }
+  })
+  
+  tl.to(img, { height: 0 });
+})
 */
+
+texts.forEach((text, i) => {
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: text,
+      pin: true,
+      start: "top center",
+      // end: "+=200%",
+      // markers: true,
+      scrub: true,
+      toggleActions: "play none reverse none",
+      // ease: "Power2.easeIn"
+    },
+  })
+
+  tl.to(text, { duration: 0.33, opacity: 1, y:"50%" })
+  .to(text, { duration: 0.33, opacity: 0, y:"0" }, 0.66)
+  ;
+});
 
 /*---------- section ----------*/
 const bgList = document.querySelectorAll(".brand__move li")
@@ -185,7 +214,7 @@ const bgColorMove = gsap.timeline({
     pinSpacing: false,
     start: "top top",
     end: "+=100%",
-    markers: true,
+    // markers: true,
     scrub: 1,
     ease: "Power2.easeOut"
   },

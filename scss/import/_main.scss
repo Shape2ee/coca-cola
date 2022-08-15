@@ -155,30 +155,47 @@
 .product {
   position: relative;
   background-color: $G-color-black;
-  height: 400vh;
+  height: 800vh;
+  // padding: 50vh 0;
 
-  &__item {
+  &__container {
+    // @include positionTopLeft(50%, 50%);
+
     position: relative;
-    height: 100vh;
-    overflow: hidden
+    display: flex;
+    // width: 90%;
+    height: 100%;
+
+    li {
+      @include flexBox(center, center);
+
+      height: 100vh;
+    }
   }
 
-  &__img {
-    @include positionTopLeft(50%, 50%);
-
-    // margin: 100px 0;
-    width: 40%;
-  }
-
-  &__title {
-    @include positionTopLeft(50%, 50%);
-
+  &__list--img {
+    position: absolute;
     width: 100%;
     text-align: center;
-    text-transform: uppercase;
+  }
+
+  &__list--text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: $G-color-white;
+
+    li {
+      transform:translateY(100%);
+      opacity: 0;
+    }
+  }
+  
+  &__title {
+    // transform: translateY(100%);
     font-size: 12vw;
     font-weight: $G-font-bold;
-    color: $G-color-white;
+    text-transform: uppercase;
 
     .block {
       display: block;
@@ -212,9 +229,6 @@
   }
 
   &__txt-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     margin-left: 5.208vw;
     margin-right: 26.042vw;
     height: 85%;
@@ -229,6 +243,7 @@
     flex-shrink: 0;
     font-size: 6rem;
     font-weight: $G-font-bold;
+    text-transform: uppercase;
 
     &-stroke {
       @include textBorder($G-color-black);
@@ -540,21 +555,21 @@
   /****** ******/
   .product{
     &__img {
-      width: 25%;
-      left: 0;
-      transform: translateY(-50%);
+      width: 195px;
     }
 
     &__title {
-      left: auto;
-      right: 0;
-      width: 60%;
       font-size: 7.813vw;
-      transform: translateY(-50%);
 
       .block {
         font-size: 13.021vw;
       }
+    }
+  }
+
+  .sticky {
+    &__title {
+      font-size: 9.375vw;
     }
   }
 
@@ -588,8 +603,20 @@
 
 @media screen and (min-width:1024px) {
   .product{
-    &__img {
-      width: auto;
+    &__list--img {
+      position: static;
+    }
+
+    &__list--text {
+      position: static;
+    }
+
+    &__title {
+      font-size: 5.469vw;
+
+      .block {
+        font-size: 11.719vw;
+      }
     }
   }
 

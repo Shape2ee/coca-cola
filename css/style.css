@@ -685,31 +685,38 @@ header {
 .product {
   position: relative;
   background-color: #000;
-  height: 400vh;
+  height: 800vh;
 }
-.product__item {
+.product__container {
   position: relative;
+  display: flex;
+  height: 100%;
+}
+.product__container li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  overflow: hidden;
 }
-.product__img {
+.product__list--img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-}
-.product__title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   text-align: center;
-  text-transform: uppercase;
+}
+.product__list--text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.product__list--text li {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.product__title {
   font-size: 12vw;
   font-weight: 700;
-  color: #fff;
+  text-transform: uppercase;
 }
 .product__title .block {
   display: block;
@@ -741,9 +748,6 @@ header {
   height: 100%;
 }
 .sticky__txt-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   margin-left: 5.208vw;
   margin-right: 26.042vw;
   height: 85%;
@@ -756,6 +760,7 @@ header {
   flex-shrink: 0;
   font-size: 6rem;
   font-weight: 700;
+  text-transform: uppercase;
 }
 .sticky__title-stroke {
   text-shadow: 1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
@@ -1034,19 +1039,16 @@ header {
   }
   /****** ******/
   .product__img {
-    width: 25%;
-    left: 0;
-    transform: translateY(-50%);
+    width: 195px;
   }
   .product__title {
-    left: auto;
-    right: 0;
-    width: 60%;
     font-size: 7.813vw;
-    transform: translateY(-50%);
   }
   .product__title .block {
     font-size: 13.021vw;
+  }
+  .sticky__title {
+    font-size: 9.375vw;
   }
   /****** ******/
   .brand__container {
@@ -1071,8 +1073,17 @@ header {
   }
 }
 @media screen and (min-width: 1024px) {
-  .product__img {
-    width: auto;
+  .product__list--img {
+    position: static;
+  }
+  .product__list--text {
+    position: static;
+  }
+  .product__title {
+    font-size: 5.469vw;
+  }
+  .product__title .block {
+    font-size: 11.719vw;
   }
   .brand__value {
     font-size: 15.625vw;
