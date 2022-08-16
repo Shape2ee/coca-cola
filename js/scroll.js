@@ -2,16 +2,15 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-/*---------- section1 ----------*/
+/*---------- section1 since ----------*/
 
 gsap.to(".since__logo",{
   yPercent: -100,
   opacity: 0,
   scrollTrigger: {
     trigger: ".since",
-    pin: true,   // pin the trigger element while active
-    start: "top top", // when the top of the trigger hits the top of the viewport
-    end: "+=100%", // end after scrolling 500px beyond the start
+    start: "top top",
+    end: "+=100%",
     // markers: true,
     scrub: 1,
   },
@@ -20,45 +19,19 @@ gsap.to(".since__logo",{
 const sinceTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".since",
-    pin: true,
     start: "top top",
-    end: "+=100%",
+    end: "+=50%",
     // markers: true,
     scrub: 1,
     ease: "Power2.easeIn"
   },
 })
 
-sinceTimeline.to(".since__can", {rotate: 30,})
+sinceTimeline.to(".since__can", {rotate: 30, y: 50})
 .to(".since__txt", {scale: 10, y:200})
 
-// gsap.to(".since__can",{
-//   rotate: 30,
-//   y:100,
-//   scrollTrigger: {
-//     trigger: ".since",
-//     pin: true,   // pin the trigger element while active
-//     start: "top top", // when the top of the trigger hits the top of the viewport
-//     end: "bottom 100%", // end after scrolling 500px beyond the start
-//     markers: true,
-//     scrub: 1
-//   },
-// });
+/*---------- section2 purpose ----------*/
 
-// gsap.to(".since__txt",{
-//   yPercent: 800,
-//   scale: 10,
-//   scrollTrigger: {
-//     trigger: ".since",
-//     pin: true,   // pin the trigger element while active
-//     start: "top top", // when the top of the trigger hits the top of the viewport
-//     end: "bottom 100%r", // end after scrolling 500px beyond the start
-//     markers: true,
-//     scrub: 1
-//   },
-// });
-
-/*---------- section2 ----------*/
 const purposeTitle = document.querySelectorAll(".purpose__txt");
 console.log(purposeTitle);
 
@@ -71,7 +44,6 @@ const movingTitle = (xData) => {
       trigger: ".purpose",
       pin: true,
       start: "top top",
-      end: "bottom top",
       // markers: true,
       scrub: 1,
       ease: Power2.easeOut,
@@ -96,7 +68,8 @@ gsap.to(".purpose__rotate", {
   },
 });
 
-/*---------- section3 ----------*/
+/*---------- section3 vision ----------*/
+
 gsap.from(".vision__title-stroke", {
   xPercent: 100,
   scrollTrigger: {
@@ -121,41 +94,21 @@ gsap.from(".vision__title-fill", {
   },
 })
 
-/*---------- section4 ----------*/
-gsap.utils.toArray(".product__list--img li").forEach((section, i) => {
+/*---------- section4 product ----------*/
+
+gsap.utils.toArray(".product__list-img li").forEach((img, i) => {
   ScrollTrigger.create({
-    trigger: section,
+    trigger: img,
     start: "center center", 
     end: "+=150%",
     pin: true,
-    markers: true,
+    // markers: true,
     scrub: 1,
+    toggleActions: "none pause none none",
   });
 });
 
-
-let imgs = gsap.utils.toArray('.product__img');
-let texts = gsap.utils.toArray('.product__list--text li');
-
-/*
-imgs.forEach((img, i) => {
-
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: img,
-      pin: true,
-      start: "center center",
-      markers: true,
-      // scroller: ".scroller",
-      scrub: true,
-      // toggleActions: "play none reverse none",
-      // invalidateOnRefresh: true,     
-    }
-  })
-  
-  tl.to(img, { height: 0 });
-})
-*/
+let texts = gsap.utils.toArray('.product__list-text li');
 
 texts.forEach((text, i) => {
 
@@ -166,46 +119,42 @@ texts.forEach((text, i) => {
       start: "top center",
       // end: "+=200%",
       // markers: true,
-      scrub: true,
+      scrub: 1,
       toggleActions: "play none reverse none",
       // ease: "Power2.easeIn"
     },
   })
 
-  tl.to(text, { duration: 0.33, opacity: 1, y:"50%" })
-  .to(text, { duration: 0.33, opacity: 0, y:"0" }, 0.66)
+  tl.to(text, { duration: 0.33, scale:1.2, opacity: 1, y:"50%" })
+  .to(text, { duration: 0.33, scale:0.8, opacity: 0, y:"0" }, 0.66)
   ;
 });
 
-/*---------- section ----------*/
-const bgList = document.querySelectorAll(".brand__move li")
-const infoList = document.querySelectorAll(".brand__info li")
-/*
-gsap.to(bgList[0],{
-  y: 0,
+/*---------- section5 gallery ----------*/
+gsap.timeline({
   scrollTrigger: {
-    trigger: ".brand",
-    pin: true,
+    trigger: ".gallery__wrap",
     start: "top top",
-    end: "bottom center",
-    markers: true,
-    scrub: 1
-  }
-});
-
-gsap.to(bgList[1],{
-  y: 0,
-  delay: 0.25,
-  scrollTrigger: {
-    trigger: ".brand",
-    pin: true,
-    start: "top top",
-    end: "bottom center",
-    markers: true,
-    scrub: 1,
+    // end: "+=200%",
+    scrub: true,
+    pin: ".gallery",
+    // markers:true,
+    anticipatePin: 1
   }
 })
-*/
+
+.set(".gallery__block:not(.gallery__block-center)", {autoAlpha: 0})
+.to(".gallery__block:not(.gallery__block-center)", {duration: 0.1, autoAlpha: 1}, 0.001)
+.from(".gallery__grid", {
+  scale: 4,
+  ease: "none",
+})
+
+/*---------- section6 brand ----------*/
+
+const bgList = document.querySelectorAll(".brand__move li");
+const infoList = document.querySelectorAll(".brand__info li");
+const titleList = document.querySelectorAll(".brand__title .block");
 
 const bgColorMove = gsap.timeline({
   scrollTrigger: {
@@ -220,11 +169,32 @@ const bgColorMove = gsap.timeline({
   },
 })
 
-bgColorMove.to(bgList[0],{y: 0,})
-  .to(bgList[1],{y: 0,})
-  .to(bgList[2],{y: 0,})
-  .to(bgList[3],{y: 0,})
-  .to(bgList[4],{y: 0,})
-  .to(bgList[5],{y: 0,})
+bgColorMove.to(bgList[0],{duration: 0.33, y: 0,})
+  .to(bgList[1],{duration: 0.33, y: 0,})
+  .to(bgList[2],{duration: 0.33, y: 0,})
+  .to(bgList[3],{duration: 0.33, y: 0,})
+  .to(bgList[4],{duration: 0.33, y: 0,})
+  .to(bgList[5],{duration: 0.33, y: 0,})
   .from(infoList[0], {yPercent: 500},2)
-  .from(infoList[1], {yPercent: 500},2.25)
+  .from(infoList[1], {yPercent: 500},2.25);
+
+const moveRightTitle = (xData) => {
+  return {
+    xPercent: xData,
+    yPercent:100,
+    opacity: 0,
+    scrollTrigger: {
+      trigger: ".brand",
+      // pin: true,
+      start: "top top",
+      end: "center center",
+      // markers: true,
+      scrub: 1,
+      ease: Power2.easeOut,
+    }
+  }
+}
+
+gsap.from(titleList[0],moveRightTitle(-100));
+gsap.from(titleList[1],moveRightTitle(-70));
+gsap.from(titleList[2],moveRightTitle(-40));

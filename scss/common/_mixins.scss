@@ -61,3 +61,10 @@
 @mixin textBorder($color) {
   text-shadow: 1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
 }
+
+
+// grid
+@mixin gridSetting($column, $row) {
+  grid-column: $column;
+  grid-row: $row;
+}

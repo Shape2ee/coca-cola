@@ -2,7 +2,7 @@
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
-  loop: true,
+  // loop: true,
   breakpoints: {
     // when window width is >= 320px
     320: {
@@ -25,5 +25,6 @@ const swiper = new Swiper('.swiper', {
   navigation: {
     nextEl: '.news__next',
     prevEl: '.news__prev',
+    disabledClass: "disabled",
   },
 });

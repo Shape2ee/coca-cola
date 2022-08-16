@@ -72,17 +72,19 @@
   </header>
   <!-- main -->
   <main>
-    <!-- section1 -->
+    <!-- section1 since -->
     <section class="since">
       <div class="since__container">
         <div class="since__img-box">
-          <img class="since__logo" src="./images/logo.svg" alt="coca-cola logo">
+          <div class="since__logo">
+            <img src="./images/logo.svg" alt="coca-cola logo">
+          </div>
           <img class="since__can" src="./images/coca-cola.png" alt="coca-cola can">
-          <h2 class="since__txt">since 1886</h2>
+          <div class="since__txt"><h2>since 1886</h2></div>
         </div>
       </div>
     </section>
-    <!-- section2 -->
+    <!-- section2 purpose -->
     <section class="purpose">
       <div class="inner_wrapper">
         <div class="purpose__container">
@@ -132,36 +134,54 @@
         </div>
       </div>
     </section>
-    <!-- section3 -->
+    <!-- section3 vision -->
     <section class="vision">
       <div class="vision__container">
         <h2 class="vision__title vision__title-stroke">Refresh the world.</h2>
         <h2 class="vision__title vision__title-fill">Make a difference.</h2>
       </div>
     </section>
-    <!-- section4 -->
+    <!-- section4 product -->
     <section class="product">
       <div class="inner_wrapper">
+        <!-- bg line -->
         <ul class="bg">
           <li class="bg__line"></li>
+          <li class="bg__line">
+            <div class="bg__block bg__block1"></div>
+            <div class="bg__block bg__block5"></div>
+          </li>
           <li class="bg__line"></li>
           <li class="bg__line"></li>
-          <li class="bg__line"></li>
-          <li class="bg__line"></li>
-          <li class="bg__line"></li>
-          <li class="bg__line"></li>
-          <li class="bg__line"></li>
-          <li class="bg__line"></li>
-          <li class="bg__line"></li>
+          <li class="bg__line">
+            <div class="bg__block bg__block7"></div>
+          </li>
+          <li class="bg__line">
+            <div class="bg__block bg__block3"></div>
+          </li>
+          <li class="bg__line">
+            <div class="bg__block bg__block2"></div>
+          </li>
+          <li class="bg__line">
+            <div class="bg__block bg__block8"></div>
+          </li>
+          <li class="bg__line">
+            <div class="bg__block bg__block4"></div>
+            <div class="bg__block bg__block6"></div>
+          </li>
+          <li class="bg__line">
+            <div class="bg__block bg__block9"></div>
+          </li>
           <li class="bg__line"></li>
         </ul>
+        <!-- content -->
         <div class="product__container">
-          <ul class="product__list--img">
+          <ul class="product__list-img">
             <li><img class="product__img" src="./images/img_Coca-Cola.png" alt="original"></li>
             <li><img class="product__img" src="./images/img_Light.png" alt="light"></li>
             <li><img class="product__img" src="./images/img_Zero.png" alt="zero"></li>
           </ul>
-          <ul class="product__list--text">
+          <ul class="product__list-text">
             <li>
               <h2 class="product__title">
                 <span class="block">coca-cola</span>
@@ -183,7 +203,35 @@
     </section>
 
     <!-- canvas -->
-    <canvas id="canvas" class="canvas"></canvas>
+    <section class="gallery">
+      <h2 class="blind">coca-cola gallery</h2>
+        <div class="gallery__wrap">
+
+          <ul class="gallery__grid">
+            <li class="gallery__item">
+              <div class="gallery__block"></div>
+            </li>
+            <li class="gallery__item">
+              <div class="gallery__block"></div>
+            </li>
+            <li class="gallery__item">
+              <div class="gallery__block"></div>
+            </li>
+            <li class="gallery__item">
+              <div class="gallery__block"></div>
+            </li>
+            <li class="gallery__item">
+              <div class="gallery__block"></div>
+            </li>
+            <li class="gallery__item">
+              <div class="gallery__block"></div>
+            </li>
+            <li class="gallery__item">
+              <div class="gallery__block gallery__block-center"></div>
+            </li>
+          </ul>
+      </div>
+    </section>
     <!-- section5 sticky -->
     <section class="sticky">
       <div class="sticky__container">
@@ -234,9 +282,9 @@
     <!-- section6 brand -->
     <section class="brand">
       <div class="brand__container">
-        <div class="brand__title">
+        <div class="brand__txt">
             <div class="inner_wrapper">
-            <h2>
+            <h2 class="brand__title">
               <span class="block">Woldwide</span>
               <span class="block">Brand,</span>
               <span class="block">Coca-Cola</span>
@@ -259,7 +307,7 @@
             </li>
             <li>
               <h3 class="brand__value">200<span class="brand__value-plus">+</span></h3>
-              <p class="brand__desc">years of refreshing the world</p>
+              <p class="brand__desc">countries and territories offer our products</p>
             </li>
           </ul>
         </div>
@@ -278,6 +326,40 @@
             <li class="news__next"><span class="blind">다음</span></li>
           </ul>
           <ul class="news__container swiper-wrapper">
+            <li class="swiper-slide"><a href="#">
+              <div class="news__img">
+                <img src="./images/news_img1.png" alt="“What the Fanta?”">
+              </div>
+              <div class="news__txt">
+                <h3>Fanta Fans Ask, “What the Fanta?”
+                  With Launch of Mystery Flavors and
+                  Campaign</h3>
+                <p class="news__date">2022.07.14</p>
+              </div>
+            </a></li>
+            <li class="swiper-slide"><a href="#">
+              <div class="news__img">
+                <img src="./images/news_img2.png" alt="Coca-Cola Drops">
+              </div>
+              <div class="news__txt">
+                <h3>Coca-Cola Drops Pride-Inspired Digital
+                  Collectibles Benefiting LGBTQIA+
+                  Charities</h3>
+                <p class="news__date">2022.07.14</p>
+              </div>
+            </a></li>
+            <li class="swiper-slide"><a href="#">
+              <div class="news__img">
+                <img src="./images/news_img3.png" alt="Cultural Icon
+                Marshmello">
+              </div>
+              <div class="news__txt">
+                <h3>Taste the Track: Coca-Cola Drops New
+                  Coke Creation with Cultural Icon
+                  Marshmello</h3>
+                <p class="news__date">2022.07.14</p>
+              </div>
+            </a></li>
             <li class="swiper-slide"><a href="#">
               <div class="news__img">
                 <img src="./images/news_img1.png" alt="“What the Fanta?”">
@@ -353,10 +435,10 @@
   </footer>
 
   <!-- script -->
-  <!-- <script src="./js/main.js"></script> -->
   <script src="./js/scroll.js"></script>
   <script src="./js/horizontal.js"></script>
   <script src="./js/swiper.js"></script>
-  <!-- <script src="./js/reload.js"></script> -->
+  <script src="./js/reload.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>

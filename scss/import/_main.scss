@@ -1,5 +1,13 @@
 @charset "utf-8";
 /* _main.scss */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #eee;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $G-color-main;
+  border: 1px solid #eee;
+}
 
 .inner_wrapper {
   margin: 0 auto;
@@ -19,8 +27,17 @@
   &__line {
     position: absolute;
     top: 0;
+    width: 10%;
     height: 100%;
     border-left: 1px solid rgba($G-color-lightgray, $alpha: 0.3);
+  }
+
+  &__block {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, $G-color-main, rgba($G-color-main, $alpha: 0));
   }
 
   @each $left in $left-list {
@@ -29,11 +46,27 @@
       left: $left;
     }
   }
+  @for $i from 1 to 10 {
+    &__block#{$i} {
+      top: calc(10% * #{$i});
+    }
+  }
 }
 
 /****** secition1  since ******/
+@keyframes move-scale {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes move-down {
+  0% { transform:  translateY(-100%); }
+  100% { transform:  translateY(0); }
+}
+
 .since {
-  height: 150vh;
+  height: 120vh;
 
   &__container {
     width: 100%;
@@ -53,19 +86,35 @@
   }
 
   &__logo {
+    overflow: hidden;
     position: absolute;
     width: 100%;
+    // height: 100%;
     z-index: -9;
+
+    img {
+      width: 100%;
+      animation: move-down 0.5s ease-in-out forwards;
+      will-change: transform;
+    }
   }
 
   &__txt {
-    font-size: 4rem;
-    font-weight: $G-font-bold;
-    color: $G-color-main;
+    overflow: hidden;
+    
+    h2 {
+      font-size: 4rem;
+      font-weight: $G-font-bold;
+      color: $G-color-main;
+      animation: move-down 0.5s 0.5s ease-out backwards;
+      // will-change: transform;
+    }
   }
 
   &__can {
     width: 50%;
+    animation: move-scale 0.7s 0.5s ease-in-out backwards;
+    will-change: transform;
   }
 }
 
@@ -90,6 +139,7 @@
   &__txt {
     display: block;
     font-weight: $G-font-bold;
+    will-change: transform;
   }
 
   &__img {
@@ -105,6 +155,7 @@
     height: 14.993vw;
     min-width: 10rem;
     min-height: 10rem;
+    will-change: transform;
 
     @for $i from 1 to 30 {
       .txt#{$i} {
@@ -142,6 +193,7 @@
     font-size: 10.417vw;
     font-weight: $G-font-bold;
     white-space: nowrap;
+    will-change: transform;
   }
 
   &__title-stroke {
@@ -173,19 +225,26 @@
     }
   }
 
-  &__list--img {
+  &__list-img {
     position: absolute;
     width: 100%;
+    // height: 200vh;
     text-align: center;
+
+    // li {
+      // padding-bottom: 200vh;
+      // height: 100vh;
+    // }
   }
 
-  &__list--text {
+  &__list-text {
     position: absolute;
     width: 100%;
     text-align: center;
     color: $G-color-white;
 
     li {
+      // height: 100vh;
       transform:translateY(100%);
       opacity: 0;
     }
@@ -196,6 +255,7 @@
     font-size: 12vw;
     font-weight: $G-font-bold;
     text-transform: uppercase;
+    will-change: transform, opacity;
 
     .block {
       display: block;
@@ -205,9 +265,92 @@
 }
 
 // canvas
-.canvas {
+.gallery {
   height: 100vh;
-  background-color: $G-color-main;
+  background-color: $G-color-white;
+
+  &__wrap {
+    @include flexBox(center, center);
+
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    width: 70%;
+    height: 70%;
+  }
+
+
+  &__block {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__block-center {
+    z-index: 999;
+  }
+
+  &__item:nth-child(1) {
+    @include gridSetting(3 / span 2, 1 / span 2);
+    
+    .gallery__block {
+      @include imgStyle(url(../../images/gallery_1.png), no-repeat, 50%, 50%, cover)
+    }
+  }
+
+  &__item:nth-child(2) {
+    @include gridSetting(6 / span 1, 2 / span 1);
+    
+    .gallery__block {
+      @include imgStyle(url(../../images/gallery_2.png), no-repeat, 50%, 50%, cover)
+    }
+  }
+
+  &__item:nth-child(3) {
+    @include gridSetting(2 / span 1, 3 / span 1);
+    
+    .gallery__block {
+      @include imgStyle(url(../../images/gallery_3.png), no-repeat, 50%, 50%, cover)
+    }
+  }
+
+  &__item:nth-child(4) {
+    @include gridSetting(4 / span 2, 6 / span 2);
+    
+    .gallery__block {
+      @include imgStyle(url(../../images/gallery_4.png), no-repeat, 50%, 50%, cover);
+    }
+  }
+
+  &__item:nth-child(5) {
+    @include gridSetting(6 / span 2, 3 / span 2);
+    
+    .gallery__block {
+      @include imgStyle(url(../../images/gallery_5.png), no-repeat, 50%, 50%, cover);
+    }
+  }
+
+  &__item:nth-child(6) {
+    @include gridSetting(1 / span 2, 5 / span 2);
+    
+    .gallery__block {
+      @include imgStyle(url(../../images/gallery_6.png), no-repeat, 50%, 50%, cover);
+    }
+  }
+  
+  &__item:nth-child(7) {
+    @include gridSetting(3 / span 3, 3 / span 3);
+
+    .gallery__block {
+      @include imgStyle(url(../../images/gallery_center.png), no-repeat, 50%, 50%, cover);
+    }
+  }
 }
 
 /****** secition5 sticky ******/
@@ -243,7 +386,7 @@
     flex-shrink: 0;
     font-size: 6rem;
     font-weight: $G-font-bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
 
     &-stroke {
       @include textBorder($G-color-black);
@@ -333,15 +476,17 @@
     height: 100vh;
   }
 
-  &__title {
+  &__txt {
     width: 100%;
     height: 40%;
   }
 
-  &__title h2{
+  &__title {
+    padding-top: 8rem;
     font-size: 10.256vw;
     font-weight: $G-font-bold;
     color: $G-color-main;
+    will-change: transform;
 
     .block {
       display: block;
@@ -363,7 +508,8 @@
     li {
       width: 100%;
       background-color: $G-color-main;
-      transform: translateY(100%)
+      transform: translateY(100%);
+      will-change: transform;
     }
   }
 
@@ -426,10 +572,18 @@
     transform: rotate(180deg);
   }
 
+  &__prev.disabled {
+    opacity: 0.5;
+  }
+
   &__next {
     @extend %arrow-btn;
 
     transform: rotate(0);
+  }
+
+  &__next.disabled {
+    opacity: 0.5;
   }
 
   &__slide {
@@ -444,7 +598,12 @@
       // margin-right: 2rem;
       width: 100%;
       // max-width: 550px;
-      background-color: $G-color-white;
+      background-color: $G-color-black;
+    }
+
+    li a {
+      display: block;
+      transition: transform 0.5s;
     }
   }
 
@@ -464,6 +623,7 @@
     height: 150px;
     font-size: 2rem;
     line-height: 2.6rem;
+    background-color: $G-color-white;
   }
 
   &__date {
@@ -482,7 +642,7 @@
   &__first {
     @extend %move-title;
 
-    color: blue;
+    // color: blue;
     animation: scrolling-left1 30s infinite linear;
     
   }
@@ -496,15 +656,6 @@
   }
 }
 
-@keyframes move-right-to-left {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
 @keyframes scrolling-left1 {
   0% {transform: translateX(100%);}
   100% {transform: translateX(-100%);}
@@ -513,16 +664,6 @@
 @keyframes scrolling-left2 {
   0% {transform: translateX(0%);}
   100% {transform: translateX(-200%);}
-}
-
-/* use this one to move from right to left direction */
-@keyframes move-right-to-left {
-  from {
-      transform: translateX(0);
-  }
-  to {
-      transform: translateX(-50%);
-  }
 }
 
 @media screen and (min-width:768px) {
@@ -579,16 +720,18 @@
       flex-direction: row;
     }
 
-    &__title {
+    &__txt {
       height: 100%;
 
-      h2 {
-        @include flexBox(center, flex-start);
+    }
 
-        flex-direction: column;
-        height: 100%;
-        font-size: 7.813vw;
-      }
+    &__title {
+      @include flexBox(center, flex-start);
+
+      flex-direction: column;
+      padding: 0;
+      height: 100%;
+      font-size: 7.813vw;
     }
 
     &__scroll {
@@ -603,11 +746,11 @@
 
 @media screen and (min-width:1024px) {
   .product{
-    &__list--img {
+    &__list-img {
       position: static;
     }
 
-    &__list--text {
+    &__list-text {
       position: static;
     }
 
@@ -620,11 +763,12 @@
     }
   }
 
-  .brand{
+  .brand {
     &__value {
       font-size: 15.625vw;
     }
   }
+
   .moveTitle {
     height: 12.417vw;
 
@@ -636,6 +780,26 @@
     &__second {
       font-size: 10.417vw;
       line-height: 12.417vw;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .news {
+    &__slide {
+      li:hover a {
+        transform: translate(1.04vw, -1.04vw);
+      }
+    }
+
+    &__prev:not(.disabled):hover {
+      opacity: 0.9;
+      background-position: 60% 50%;
+    }
+
+    &__next:not(.disabled):hover {
+      opacity: 0.9;
+      background-position: 60% 50%;
     }
   }
 }

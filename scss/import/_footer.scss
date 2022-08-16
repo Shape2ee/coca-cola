@@ -44,7 +44,7 @@
 
         content: "";
         display: block;
-        background-color: $G-color-white;
+        background-color: rgba($G-color-white, $alpha: 0.5);
         width: 1px;
         height: 1rem;
       }
@@ -67,5 +67,17 @@
   &__copy {
     font-size: 1.4rem;
     color: rgba($G-color-white, $alpha: 0.5);
+  }
+}
+
+@media (hover: hover) {
+  .footer {
+    li:hover a {
+      text-decoration: underline;
+    }
+
+    &__social li:hover {
+      opacity: 0.7;
+    }
   }
 }
