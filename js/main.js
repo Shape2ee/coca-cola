@@ -28,3 +28,12 @@ const scrollUpDown = () => {
 };
 
 window.addEventListener("scroll", scrollUpDown);
+
+/*------------ mobile menu -----------*/
+
+const menuBtn = document.querySelector(".header__mobile-btn");
+const gnb = document.querySelector(".header__gnb");
+
+menuBtn.addEventListener("click", () => {
+  gnb.classList.toggle("show");
+});

@@ -7,13 +7,13 @@ header {
   left: 0;
   width: 100%;
   height: 8rem;
+  background-color: $G-color-white;
   z-index: 9999;
   transition: top 1s;
 }
 
 header.top {
   top: 0;
-  background-color: $G-color-white;
 }
 
 header.hide {
@@ -41,13 +41,27 @@ header.hide {
   }
 
   &__gnb {
-    /* display: flex; */
-    display: none;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s;
+    background-color: #eee;
 
+    &.show {
+      height: 40rem;
+    }
+    
     li {
-      margin: 0 0.5rem;
-      padding: 0 1rem;
+      // margin: 0 0.5rem;
+      padding: 0 3rem;
+      // padding: 0 1rem;
+      border-bottom: 1px solid $G-color-white;
     }
 
     a {
@@ -95,7 +109,13 @@ header.hide {
 @media screen and (min-width:1024px) {
   .header {
     &__gnb {
-      display: flex;
+      position: static;
+      flex-direction: row;
+      width: auto;
+      height: 100%;
+      background-color: $G-color-white;
+      // top: 0;
+      height: auto;
 
       li {
         position: relative;
@@ -123,11 +143,21 @@ header.hide {
 @media (hover: hover) {
   .header {
     &__gnb li:hover {
-      color: $G-color-main;
-      
-      &::after {
-        width: 100%;
-      }
+      background-color: $G-color-main;
+      color: $G-color-white;
     }
-  }  
+  }
+
+  @media screen and (min-width:1024px) {
+    .header {
+      &__gnb li:hover {
+        background-color: $G-color-white;
+        color: $G-color-main;
+        
+        &::after {
+          width: 100%;
+        }
+      }
+    }  
+  } 
 }

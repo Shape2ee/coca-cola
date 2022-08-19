@@ -10,4 +10,3 @@ window.addEventListener('resize', function() {
   clearTimeout(timer);
   timer = setTimeout(resizeComplete, 400);
 }, false);
-

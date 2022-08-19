@@ -107,7 +107,6 @@
       font-weight: $G-font-bold;
       color: $G-color-main;
       animation: move-down 0.5s 0.5s ease-out backwards;
-      // will-change: transform;
     }
   }
 
@@ -509,7 +508,6 @@
       width: 100%;
       background-color: $G-color-main;
       transform: translateY(100%);
-      will-change: transform;
     }
   }
 
