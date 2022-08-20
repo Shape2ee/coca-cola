@@ -37,7 +37,11 @@
     left: 0;
     width: 100%;
     height: 200px;
-    background: linear-gradient(180deg, $G-color-main, rgba($G-color-main, $alpha: 0));
+    background: linear-gradient(
+      180deg,
+      $G-color-main,
+      rgba($G-color-main, $alpha: 0)
+    );
   }
 
   @each $left in $left-list {
@@ -55,14 +59,24 @@
 
 /****** secition1  since ******/
 @keyframes move-scale {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes move-down {
-  0% { transform:  translateY(-100%); }
-  100% { transform:  translateY(0); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .since {
@@ -76,7 +90,7 @@
   &__img-box {
     @include flexBox(center, center);
     // @include imgStyle(url(../../images/logo.svg), no-repeat, 50%, 50%, contain);
-    
+
     position: relative;
     flex-direction: column;
     margin: $G-margin-center;
@@ -95,13 +109,12 @@
     img {
       width: 100%;
       animation: move-down 0.5s ease-in-out forwards;
-      will-change: transform;
     }
   }
 
   &__txt {
     overflow: hidden;
-    
+
     h2 {
       font-size: 4rem;
       font-weight: $G-font-bold;
@@ -113,7 +126,6 @@
   &__can {
     width: 50%;
     animation: move-scale 0.7s 0.5s ease-in-out backwards;
-    will-change: transform;
   }
 }
 
@@ -138,7 +150,6 @@
   &__txt {
     display: block;
     font-weight: $G-font-bold;
-    will-change: transform;
   }
 
   &__img {
@@ -148,13 +159,12 @@
   }
 
   &__rotate {
-    @include positionBottomLeft(-7vw,-7vw);
+    @include positionBottomLeft(-7vw, -7vw);
 
     width: 14.993vw;
     height: 14.993vw;
     min-width: 10rem;
     min-height: 10rem;
-    will-change: transform;
 
     @for $i from 1 to 30 {
       .txt#{$i} {
@@ -192,7 +202,6 @@
     font-size: 10.417vw;
     font-weight: $G-font-bold;
     white-space: nowrap;
-    will-change: transform;
   }
 
   &__title-stroke {
@@ -231,8 +240,8 @@
     text-align: center;
 
     // li {
-      // padding-bottom: 200vh;
-      // height: 100vh;
+    // padding-bottom: 200vh;
+    // height: 100vh;
     // }
   }
 
@@ -244,17 +253,16 @@
 
     li {
       // height: 100vh;
-      transform:translateY(100%);
+      transform: translateY(100%);
       opacity: 0;
     }
   }
-  
+
   &__title {
     // transform: translateY(100%);
     font-size: 12vw;
     font-weight: $G-font-bold;
     text-transform: uppercase;
-    will-change: transform, opacity;
 
     .block {
       display: block;
@@ -280,15 +288,20 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 14%);
     width: 70%;
     height: 70%;
   }
 
-
   &__block {
     width: 100%;
     height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__block-center {
@@ -297,58 +310,30 @@
 
   &__item:nth-child(1) {
     @include gridSetting(3 / span 2, 1 / span 2);
-    
-    .gallery__block {
-      @include imgStyle(url(../../images/gallery_1.png), no-repeat, 50%, 50%, cover)
-    }
   }
 
   &__item:nth-child(2) {
     @include gridSetting(6 / span 1, 2 / span 1);
-    
-    .gallery__block {
-      @include imgStyle(url(../../images/gallery_2.png), no-repeat, 50%, 50%, cover)
-    }
   }
 
   &__item:nth-child(3) {
     @include gridSetting(2 / span 1, 3 / span 1);
-    
-    .gallery__block {
-      @include imgStyle(url(../../images/gallery_3.png), no-repeat, 50%, 50%, cover)
-    }
   }
 
   &__item:nth-child(4) {
     @include gridSetting(4 / span 2, 6 / span 2);
-    
-    .gallery__block {
-      @include imgStyle(url(../../images/gallery_4.png), no-repeat, 50%, 50%, cover);
-    }
   }
 
   &__item:nth-child(5) {
     @include gridSetting(6 / span 2, 3 / span 2);
-    
-    .gallery__block {
-      @include imgStyle(url(../../images/gallery_5.png), no-repeat, 50%, 50%, cover);
-    }
   }
 
   &__item:nth-child(6) {
     @include gridSetting(1 / span 2, 5 / span 2);
-    
-    .gallery__block {
-      @include imgStyle(url(../../images/gallery_6.png), no-repeat, 50%, 50%, cover);
-    }
   }
-  
+
   &__item:nth-child(7) {
     @include gridSetting(3 / span 3, 3 / span 3);
-
-    .gallery__block {
-      @include imgStyle(url(../../images/gallery_center.png), no-repeat, 50%, 50%, cover);
-    }
   }
 }
 
@@ -485,7 +470,6 @@
     font-size: 10.256vw;
     font-weight: $G-font-bold;
     color: $G-color-main;
-    will-change: transform;
 
     .block {
       display: block;
@@ -514,9 +498,8 @@
   &__info {
     @include positionTopLeft(50%, 50%);
 
-
     flex-direction: column;
-    color: $G-color-white; 
+    color: $G-color-white;
   }
 
   &__value {
@@ -636,15 +619,14 @@
   background-color: $G-color-white;
   height: 27.641vw;
   white-space: nowrap;
-  
+
   &__first {
     @extend %move-title;
 
     // color: blue;
     animation: scrolling-left1 30s infinite linear;
-    
   }
-  
+
   &__second {
     @extend %move-title;
 
@@ -655,16 +637,24 @@
 }
 
 @keyframes scrolling-left1 {
-  0% {transform: translateX(100%);}
-  100% {transform: translateX(-100%);}
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes scrolling-left2 {
-  0% {transform: translateX(0%);}
-  100% {transform: translateX(-200%);}
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   /****** ******/
   .since {
     &__can {
@@ -692,7 +682,7 @@
   }
 
   /****** ******/
-  .product{
+  .product {
     &__img {
       width: 195px;
     }
@@ -720,7 +710,6 @@
 
     &__txt {
       height: 100%;
-
     }
 
     &__title {
@@ -742,8 +731,8 @@
   }
 }
 
-@media screen and (min-width:1024px) {
-  .product{
+@media screen and (min-width: 1024px) {
+  .product {
     &__list-img {
       position: static;
     }
